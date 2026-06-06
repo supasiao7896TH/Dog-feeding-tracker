@@ -327,12 +327,12 @@
                 cell.appendChild(circle);
 
                 const indicator = document.createElement('span');
-                indicator.className = "text-[10px] px-1 py-0.5 rounded-md font-semibold w-full text-center ";
+                indicator.className = "text-[9px] py-0.5 rounded-md font-semibold w-full text-center block overflow-hidden ";
                 if (isFeedDay) {
-                    indicator.className += "bg-green-500/20 text-green-400 glow-green";
+                    indicator.className += "bg-green-500/20 text-green-400";
                     indicator.innerText = "ให้";
                 } else if (isSkipDay) {
-                    indicator.className += "bg-red-500/20 text-red-400 glow-red";
+                    indicator.className += "bg-red-500/20 text-red-400";
                     indicator.innerText = "หยุด";
                 }
                 cell.appendChild(indicator);
