@@ -316,19 +316,25 @@
                 cell.appendChild(dayLabel);
 
                 // ตรรกะแสดงสัญลักษณ์และคำนวณสถิติ
+                const isFeedDay = status === 'feed';
+                const isSkipDay = status === 'skip';
+                if (isFeedDay) feedCount++;
+                if (isSkipDay) skipCount++;
+
+                const circle = document.createElement('span');
+                circle.className = "text-xl leading-none";
+                circle.innerText = isFeedDay ? "🟢" : (isSkipDay ? "🔴" : "");
+                cell.appendChild(circle);
+
                 const indicator = document.createElement('span');
-                indicator.className = "text-[10px] mt-1 px-1.5 py-0.5 rounded-md font-medium w-full text-center ";
-                
-                if (status === 'feed') {
+                indicator.className = "text-[10px] px-1 py-0.5 rounded-md font-semibold w-full text-center ";
+                if (isFeedDay) {
                     indicator.className += "bg-green-500/20 text-green-400 glow-green";
-                    indicator.innerText = "🟢 ให้";
-                    feedCount++;
-                } else if (status === 'skip') {
+                    indicator.innerText = "ให้";
+                } else if (isSkipDay) {
                     indicator.className += "bg-red-500/20 text-red-400 glow-red";
-                    indicator.innerText = "🔴 หยุด";
-                    skipCount++;
+                    indicator.innerText = "หยุด";
                 }
-                
                 cell.appendChild(indicator);
                 
                 // ไฮไลต์ขอบหากเป็นวันปัจจุบันเพื่อช่วยเรื่อง Scannability
