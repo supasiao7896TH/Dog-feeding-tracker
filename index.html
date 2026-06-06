@@ -7,7 +7,26 @@
     <title>Dog Feeding Calendar</title>
     
     <!-- ความปลอดภัยขั้นสูง (CSP): อนุญาตเฉพาะสคริปต์ สไตล์ และฟอนต์ที่จำเป็นจาก CDN ที่ปลอดภัยเท่านั้น -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; manifest-src 'self'; worker-src 'self';">
+
+    <!-- PWA: Web App Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- PWA: Theme & Status Bar Colors -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="msapplication-TileColor" content="#0f172a">
+
+    <!-- PWA: Android / Chrome installability -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- PWA: iOS / Safari compatibility -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Dog Tracker">
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+
+    <!-- PWA: Favicon -->
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
 
     <!-- ฟอนต์สารบัน (Sarabun) สำหรับภาษาไทยที่เป็นทางการและอ่านง่าย -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -402,6 +421,12 @@
             initStorage();
             renderCalendar();
         });
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js').catch(() => {});
+        }
     </script>
 </body>
 </html>
