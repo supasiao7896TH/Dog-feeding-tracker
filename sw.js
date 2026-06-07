@@ -1,8 +1,9 @@
-const CACHE = 'dog-feeding-v2';
+const CACHE = 'dog-feeding-v3';
 const ASSETS = [
   './',
   './index.html',
   './manifest.json',
+  './icons/icon.svg',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/apple-touch-icon.png',
