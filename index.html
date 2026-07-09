@@ -13,8 +13,8 @@
     <link rel="manifest" href="manifest.json">
 
     <!-- PWA: Theme & Status Bar Colors -->
-    <meta name="theme-color" content="#0f172a">
-    <meta name="msapplication-TileColor" content="#0f172a">
+    <meta name="theme-color" content="#e0f2fe">
+    <meta name="msapplication-TileColor" content="#e0f2fe">
 
     <!-- PWA: Android / Chrome installability -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -41,17 +41,17 @@
             --safe-top: env(safe-area-inset-top, 0px);
             --safe-bottom: env(safe-area-inset-bottom, 0px);
             /* กำหนดธีมสีพื้นฐานสไตล์นุ่มนวลสบายตา */
-            --bg-gradient-start: #0f172a;
-            --bg-gradient-end: #1e293b;
-            --glass-bg: rgba(30, 41, 59, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.08);
+            --bg-gradient-start: #e0f2fe;
+            --bg-gradient-end: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(59, 130, 246, 0.15);
         }
 
         body {
             font-family: 'Sarabun', sans-serif;
             background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
             min-height: 100vh;
-            color: #f1f5f9;
+            color: #1e293b;
             padding-top: var(--safe-top);
             padding-bottom: var(--safe-bottom);
             -webkit-tap-highlight-color: transparent;
@@ -64,7 +64,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(59, 130, 246, 0.12);
         }
 
         /* อนิเมชันการตอบสนองเมื่อกดปุ่ม (Haptic-like Touch Feedback) */
@@ -95,11 +95,11 @@
     <header class="w-full max-w-md pt-6 pb-4 flex justify-between items-center">
         <div class="flex items-center space-x-2">
             <span class="text-2xl">🐾</span>
-            <h1 class="text-xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-400">
+            <h1 class="text-xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-blue-500">
                 Dog Feeding Tracker
             </h1>
         </div>
-        <div class="text-xs font-mono text-gray-400 bg-slate-800/60 px-2.5 py-1 rounded-full border border-slate-700">
+        <div class="text-xs font-mono text-blue-600 bg-white/60 px-2.5 py-1 rounded-full border border-blue-200">
             PWA ONLINE
         </div>
     </header>
@@ -111,19 +111,19 @@
         <div class="glass-card rounded-2xl p-4 flex flex-col">
             <!-- ตัวเลือกสลับเดือน -->
             <div class="flex justify-between items-center mb-4">
-                <button id="prev-month" class="btn-active p-2 rounded-lg bg-slate-800/80 text-gray-300 border border-slate-700/50">
+                <button id="prev-month" class="btn-active p-2 rounded-lg bg-white/70 text-blue-600 border border-blue-200">
                     ◀
                 </button>
-                <h2 id="calendar-title" class="text-base font-medium text-white tracking-wide">
+                <h2 id="calendar-title" class="text-base font-medium text-slate-800 tracking-wide">
                     มกราคม 2026
                 </h2>
-                <button id="next-month" class="btn-active p-2 rounded-lg bg-slate-800/80 text-gray-300 border border-slate-700/50">
+                <button id="next-month" class="btn-active p-2 rounded-lg bg-white/70 text-blue-600 border border-blue-200">
                     ▶
                 </button>
             </div>
 
             <!-- ส่วนหัวสัปดาห์ (Days of Week) -->
-            <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-gray-400 mb-2">
+            <div class="grid grid-cols-7 gap-1 text-center text-xs font-semibold text-slate-500 mb-2">
                 <div>อา</div><div>จ</div><div>อ</div><div>พ</div><div>พฤ</div><div>ศ</div><div>ส</div>
             </div>
 
@@ -135,36 +135,36 @@
 
         <!-- การ์ดวิเคราะห์ข้อมูลประจำเดือน (Monthly Insights) -->
         <div class="glass-card rounded-2xl p-4 flex flex-col space-y-3">
-            <h3 class="text-sm font-medium text-gray-300 flex items-center">
+            <h3 class="text-sm font-medium text-slate-700 flex items-center">
                 <span class="mr-2">📊</span> สรุปโควตาประจำเดือนนี้
             </h3>
             <div class="grid grid-cols-2 gap-3">
-                <div class="bg-slate-800/40 p-3 rounded-xl border border-slate-700/30 flex items-center justify-between">
+                <div class="bg-white/50 p-3 rounded-xl border border-blue-100 flex items-center justify-between">
                     <div>
-                        <p class="text-xs text-gray-400">วันที่ต้องให้</p>
-                        <p id="stat-feed" class="text-lg font-bold text-green-400">0 วัน</p>
+                        <p class="text-xs text-slate-500">วันที่ต้องให้</p>
+                        <p id="stat-feed" class="text-lg font-bold text-green-600">0 วัน</p>
                     </div>
-                    <span class="text-xl bg-green-500/10 p-1.5 rounded-lg text-green-400">🟢</span>
+                    <span class="text-xl bg-green-500/10 p-1.5 rounded-lg text-green-600">🟢</span>
                 </div>
-                <div class="bg-slate-800/40 p-3 rounded-xl border border-slate-700/30 flex items-center justify-between">
+                <div class="bg-white/50 p-3 rounded-xl border border-blue-100 flex items-center justify-between">
                     <div>
-                        <p class="text-xs text-gray-400">วันที่ได้หยุด</p>
-                        <p id="stat-skip" class="text-lg font-bold text-red-400">0 วัน</p>
+                        <p class="text-xs text-slate-500">วันที่ได้หยุด</p>
+                        <p id="stat-skip" class="text-lg font-bold text-red-600">0 วัน</p>
                     </div>
-                    <span class="text-xl bg-red-500/10 p-1.5 rounded-lg text-red-400">🔴</span>
+                    <span class="text-xl bg-red-500/10 p-1.5 rounded-lg text-red-600">🔴</span>
                 </div>
             </div>
         </div>
 
         <!-- ส่วนควบคุมและตั้งค่า (Configuration Card) -->
         <div class="glass-card rounded-2xl p-4 flex flex-col space-y-3">
-            <h3 class="text-sm font-medium text-gray-300 flex items-center">
+            <h3 class="text-sm font-medium text-slate-700 flex items-center">
                 <span class="mr-2">🛠️</span> กำหนดจุดเริ่มต้นรอบวันเว้นวัน
             </h3>
             <div class="flex flex-col space-y-2">
-                <label for="base-date" class="text-xs text-gray-400">เลือกวันที่พี่เริ่มไปให้อาหาร (วันตั้งต้น):</label>
-                <input type="date" id="base-date" class="btn-active w-full p-3 rounded-xl bg-slate-800/90 text-white border border-slate-700 font-medium focus:outline-none focus:border-green-500" style="color-scheme: dark;">
-                <p class="text-[11px] text-gray-400 leading-relaxed">
+                <label for="base-date" class="text-xs text-slate-500">เลือกวันที่พี่เริ่มไปให้อาหาร (วันตั้งต้น):</label>
+                <input type="date" id="base-date" class="btn-active w-full p-3 rounded-xl bg-white text-slate-800 border border-blue-200 font-medium focus:outline-none focus:border-green-500" style="color-scheme: light;">
+                <p class="text-[11px] text-slate-400 leading-relaxed">
                     *ระบบจะล๊อคให้วันดังกล่าวเป็นวันแรกที่ต้องให้ (🟢) แล้วคำนวณวันถัดไปเป็นวันหยุด (🔴) สลับฟันปลาไปอย่างแม่นยำตลอดทั้งปฏิทินครับ
                 </p>
             </div>
@@ -172,14 +172,14 @@
 
         <!-- ระบบสำรองและกู้คืนข้อมูล (Data Portability) -->
         <div class="glass-card rounded-2xl p-4 flex flex-col space-y-2">
-            <h3 class="text-sm font-medium text-gray-300 flex items-center mb-1">
+            <h3 class="text-sm font-medium text-slate-700 flex items-center mb-1">
                 <span class="mr-2">💾</span> จัดการฐานข้อมูลส่วนตัว
             </h3>
             <div class="grid grid-cols-2 gap-2">
-                <button id="btn-export" class="btn-active py-2 px-3 bg-slate-800/80 hover:bg-slate-700/80 rounded-xl text-xs font-medium text-gray-200 border border-slate-700/60 flex items-center justify-center">
+                <button id="btn-export" class="btn-active py-2 px-3 bg-white/70 hover:bg-blue-50 rounded-xl text-xs font-medium text-slate-700 border border-blue-200 flex items-center justify-center">
                     📤 สำรองข้อมูล (JSON)
                 </button>
-                <button id="btn-import-trigger" class="btn-active py-2 px-3 bg-slate-800/80 hover:bg-slate-700/80 rounded-xl text-xs font-medium text-gray-200 border border-slate-700/60 flex items-center justify-center">
+                <button id="btn-import-trigger" class="btn-active py-2 px-3 bg-white/70 hover:bg-blue-50 rounded-xl text-xs font-medium text-slate-700 border border-blue-200 flex items-center justify-center">
                     📥 นำเข้าข้อมูล
                 </button>
                 <input type="file" id="import-file" accept=".json" class="hidden">
@@ -189,13 +189,13 @@
     </main>
 
     <!-- ระบบแจ้งเตือนภายในแอปแบบกำหนดเอง (Custom Overlay Toast) -->
-    <div id="toast" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 px-4 py-2.5 bg-slate-900/95 text-white text-xs font-medium rounded-xl border border-slate-700/80 shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center space-x-2">
+    <div id="toast" class="fixed bottom-12 left-1/2 transform -translate-x-1/2 px-4 py-2.5 bg-white/95 text-slate-800 text-xs font-medium rounded-xl border border-blue-200 shadow-2xl opacity-0 transition-opacity duration-300 pointer-events-none z-50 flex items-center space-x-2">
         <span id="toast-icon">✨</span>
         <span id="toast-msg">บันทึกข้อมูลเรียบร้อย</span>
     </div>
 
     <!-- ส่วนท้ายสัญลักษณ์แบรนด์ระดับพรีเมียม (Mandatory Brand Signature) -->
-    <footer class="mt-8 mb-4 text-center text-[10px] text-gray-500 leading-relaxed select-none">
+    <footer class="mt-8 mb-4 text-center text-[10px] text-slate-400 leading-relaxed select-none">
         [ 🅰️ ] A-Class WebCraft<br>
         Code • Share • Inspire<br>
         by Supasit.A
@@ -293,7 +293,7 @@
             for (let i = firstDayIndex; i > 0; i--) {
                 const dayNum = prevTotalDays - i + 1;
                 const cell = document.createElement('div');
-                cell.className = "p-2 text-xs text-gray-600 font-light bg-slate-900/20 rounded-lg";
+                cell.className = "p-2 text-xs text-slate-300 font-light bg-blue-50/40 rounded-lg";
                 cell.innerText = dayNum;
                 grid.appendChild(cell);
             }
@@ -311,7 +311,7 @@
                 
                 // คอนเทนเนอร์ระบุตัวเลขวัน
                 const dayLabel = document.createElement('span');
-                dayLabel.className = "text-xs font-bold " + (isToday ? "text-blue-400 underline decoration-2" : "text-white");
+                dayLabel.className = "text-xs font-bold " + (isToday ? "text-blue-600 underline decoration-2" : "text-slate-800");
                 dayLabel.innerText = day;
                 cell.appendChild(dayLabel);
 
@@ -329,19 +329,19 @@
                 const indicator = document.createElement('span');
                 indicator.className = "text-[9px] py-0.5 rounded-md font-semibold w-full text-center block overflow-hidden ";
                 if (isFeedDay) {
-                    indicator.className += "bg-green-500/20 text-green-400";
+                    indicator.className += "bg-green-500/15 text-green-700";
                     indicator.innerText = "ให้";
                 } else if (isSkipDay) {
-                    indicator.className += "bg-red-500/20 text-red-400";
+                    indicator.className += "bg-red-500/15 text-red-700";
                     indicator.innerText = "หยุด";
                 }
                 cell.appendChild(indicator);
-                
+
                 // ไฮไลต์ขอบหากเป็นวันปัจจุบันเพื่อช่วยเรื่อง Scannability
                 if (isToday) {
-                    cell.className += " border-blue-500 bg-blue-500/10 shadow-lg";
+                    cell.className += " border-blue-500 bg-blue-100 shadow-lg";
                 } else {
-                    cell.className += " border-slate-700/40 bg-slate-800/30";
+                    cell.className += " border-blue-100 bg-white/50";
                 }
                 
                 grid.appendChild(cell);

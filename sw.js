@@ -1,4 +1,4 @@
-const CACHE = 'dog-feeding-v3';
+const CACHE = 'dog-feeding-v4';
 const ASSETS = [
   './',
   './index.html',
